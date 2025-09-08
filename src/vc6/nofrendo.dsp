@@ -156,10 +156,6 @@ SOURCE=..\Makefile.in
 # End Source File
 # Begin Source File
 
-SOURCE=..\MARIO.NES
-# End Source File
-# Begin Source File
-
 SOURCE=..\memguard.c
 # End Source File
 # Begin Source File
