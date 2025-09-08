@@ -4,6 +4,7 @@
 **
 ** $Id: nofconfig.h,v 1.1 2001/04/27 14:37:11 neil Exp $
 */
+#if !MY_USE_MINLIB
 
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
@@ -75,3 +76,5 @@ extern config_t config;
 **
 **
 */
+
+#endif //!MY_USE_MINLIB

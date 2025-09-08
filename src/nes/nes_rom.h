@@ -26,7 +26,9 @@
 #ifndef _NES_ROM_H_
 #define _NES_ROM_H_
 
+#if !MY_USE_MINLIB
 #include <unistd.h>
+#endif
 #include <osd.h>
 
 typedef enum

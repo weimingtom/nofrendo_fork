@@ -30,16 +30,20 @@
 #include <log.h>
 
 
+#if !MY_USE_MINLIB
 static FILE *errorlog = NULL;
+#endif
 static int (*log_func)(const char *string) = NULL;
 
 /* first up: debug versions of calls */
 #ifdef NOFRENDO_DEBUG
 int log_init(void)
 {
+#if !MY_USE_MINLIB
    errorlog = fopen("errorlog.txt", "wt");
    if (NULL == errorlog)
       return (-1);
+#endif
 
    return 0;
 }
@@ -51,8 +55,10 @@ void log_shutdown(void)
    mem_checkleaks();
    mem_cleanup();
 
+#if !MY_USE_MINLIB
    if (NULL != errorlog)
       fclose(errorlog);
+#endif	  
 }
 
 int log_print(const char *string)
@@ -62,7 +68,11 @@ int log_print(const char *string)
       log_func(string);
    
    /* Log it to disk, as well */
+#if !MY_USE_MINLIB
    fputs(string, errorlog);
+//	printf("%s\n", string);  //FIXME: 
+#endif
+
 
    return 0;
 }
@@ -81,7 +91,9 @@ int log_printf(const char *format, ... )
       log_func(buffer);
    }
 
+#if !MY_USE_MINLIB
    vfprintf(errorlog, format, arg);
+#endif   
    va_end(arg);
 
    return 0; /* should be number of chars written */
@@ -128,6 +140,9 @@ void log_assert(int expr, int line, const char *file, char *msg)
    else
       log_printf("ASSERT: line %d of %s\n", line, file);
 
+#if !MY_USE_MINLIB
+//	while(1); //FIXME:
+#endif
    exit(-1);
 }
 

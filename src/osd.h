@@ -79,7 +79,11 @@ extern void osd_getsoundinfo(sndinfo_t *info);
 /* init / shutdown */
 extern int osd_init(void);
 extern void osd_shutdown(void);
+#if !MY_USE_MINLIB
 extern int osd_main(int argc, char *argv[]);
+#else
+extern int osd_main(void);
+#endif
 
 extern int osd_installtimer(int frequency, void *func, int funcsize,
                             void *counter, int countersize);

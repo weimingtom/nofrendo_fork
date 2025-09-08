@@ -55,10 +55,14 @@ static struct
 } console;
 
 /* our happy little timer ISR */
+#if !MY_USE_MINLIB
 volatile int nofrendo_ticks = 0;
+#endif
 static void timer_isr(void)
 {
+#if !MY_USE_MINLIB
    nofrendo_ticks++;
+#endif   
 }
 static void timer_isr_end(void) {} /* code marker for djgpp */
 
@@ -75,7 +79,9 @@ static void shutdown_everything(void)
       console.nextfilename = NULL;
    }
 
+#if !MY_USE_MINLIB
    config.close();
+#endif   
    osd_shutdown();
    gui_shutdown();
    vid_shutdown();
@@ -135,10 +141,14 @@ static system_t detect_systemtype(const char *filename)
 
 static int install_timer(int hertz)
 {
+#if !MY_USE_MINLIB
    return osd_installtimer(hertz, (void *) timer_isr,
                            (int) timer_isr_end - (int) timer_isr,
                            (void *) &nofrendo_ticks, 
                            sizeof(nofrendo_ticks));
+#else
+	return 0;
+#endif
 }
 
 /* This assumes there is no current context */
@@ -199,7 +209,11 @@ void main_insert(const char *filename, system_t type)
    main_eject();
 }
 
+#if !MY_USE_MINLIB
 int main(int argc, char *argv[])
+#else
+int Nofrendo_main_entry(void)
+#endif
 {
    /* initialize our system structure */
    console.filename = NULL;
@@ -214,7 +228,11 @@ int main(int argc, char *argv[])
 
    event_init();
 
+#if !MY_USE_MINLIB
    return osd_main(argc, argv);
+#else
+   return osd_main();
+#endif   
 }
 
 /* This is the final leg of main() */
@@ -223,10 +241,12 @@ int main_loop(const char *filename, system_t type)
    vidinfo_t video;
 
    /* register shutdown, in case of assertions, etc. */
+#if !MY_USE_MINLIB  
    atexit(shutdown_everything);
 
    if (config.open())
       return -1;
+#endif
 
    if (osd_init())
       return -1;

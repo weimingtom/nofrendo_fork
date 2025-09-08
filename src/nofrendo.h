@@ -36,7 +36,9 @@ typedef enum
    NUM_SUPPORTED_SYSTEMS
 } system_t;
 
+#if !MY_USE_MINLIB
 extern volatile int nofrendo_ticks; /* system timer ticks */
+#endif
 
 /* osd_main should end with a call to main_loop().
 ** Pass filename = NULL if you want to start with the demo rom 

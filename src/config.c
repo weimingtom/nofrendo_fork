@@ -1,3 +1,5 @@
+#if !MY_USE_MINLIB
+
 /* Nofrendo Configuration Braindead Sample Implementation
 **
 ** $Id: config.c,v 1.2 2001/04/27 14:37:11 neil Exp $
@@ -463,3 +465,6 @@ config_t config =
 ** This is a skeletal configuration system.
 **
 */
+
+#endif //!MY_USE_MINLIB
+

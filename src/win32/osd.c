@@ -26,7 +26,9 @@
 #endif /* !_MSC_VER */
 
 #include <noftypes.h>
+#if !MY_USE_MINLIB
 #include <config.h>
+#endif
 #include <log.h>
 #include <osd.h>
 #include <nofrendo.h>
@@ -95,8 +97,13 @@ static const char *dataDirectory(void)
 }
 
 /* This is os-specific part of main() */
+#if !MY_USE_MINLIB
 int osd_main(int argc, char *argv[])
+#else
+int osd_main()
+#endif
 {
+#if !MY_USE_MINLIB
    static char configfilename[PATH_MAX + 1];
 
    /* command-line parameters */
@@ -111,8 +118,13 @@ int osd_main(int argc, char *argv[])
       return -1;
    }
 
+
    /* all done */
    return main_loop(argv[1], system_autodetect);
+#else
+   return main_loop("rom", system_autodetect);
+#endif
+
 }
 
 /* File system interface */
@@ -222,3 +234,12 @@ int osd_makesnapname(char *filename, int len)
 **
 **
 */
+
+#if MY_USE_MINLIB
+extern const unsigned char nes_rom[];
+
+char *osd_getromdata() {
+	return (char *)nes_rom;
+}
+#endif
+
