@@ -20,7 +20,7 @@ nofrendo-2.0pre1.zip
 * Copy file "DEMO.NES" to ~/.
 * $ ./nofrendo ~/DEMO.NES
 
-## How to build for LiuLianPi V3S (Allwinner v3s, ARM 32bit Cortex-A7)  
+## (WIP) (TODO) How to build for LiuLianPi V3S (Allwinner v3s, ARM 32bit Cortex-A7)  
 * Get toolchain gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz  
 https://w.electrodragon.com/w/ARM_GCC  
 https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/  
