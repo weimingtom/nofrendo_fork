@@ -120,12 +120,14 @@ static void (*audio_callback)(void *buffer, int length) = NULL;
 /* this is the callback that SDL calls to obtain more audio data */
 static void sdl_audio_player(void *udata, unsigned char *stream, int len)
 {
+#if !defined(MY_USE_NOSOUND)
    /* SDL requests buffer fills in terms of bytes, not samples */
    if (16 == sound_bps)
       len /= 2;
 
    if (audio_callback)
       audio_callback(stream, len);
+#endif
 }
 
 void osd_setsound(void (*playfunc)(void *buffer, int length))
@@ -135,15 +137,18 @@ void osd_setsound(void (*playfunc)(void *buffer, int length))
 
 static void osd_stopsound(void)
 {
+#if !defined(MY_USE_NOSOUND)
    audio_callback = NULL;
 
    SDL_CloseAudio();
    if (NULL != audioBuffer)
       free(audioBuffer);
+#endif
 }
 
 static int osd_init_sound(void)
 {
+#if !defined(MY_USE_NOSOUND)
    SDL_AudioSpec wanted, obtained;
    unsigned int bufferSize;
 
@@ -200,6 +205,7 @@ static int osd_init_sound(void)
    }
 
    SDL_PauseAudio(0);
+#endif
    return 0;
 }
 
@@ -657,7 +663,7 @@ void osd_getinput(void)
 static void osd_freeinput(void)
 {
    int i;
-
+if (joystick_array) {
    for (i = 0; i < joystick_count; i++)
    {
       if (joystick_array[i])
@@ -670,6 +676,7 @@ static void osd_freeinput(void)
    }
 
    free(joystick_array);
+}
 }
 
 void osd_getmouse(int *x, int *y, int *button)
