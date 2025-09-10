@@ -8,9 +8,11 @@
 * https://github.com/weimingtom/wmt_stm32_study/?tab=readme-ov-file#nofrendo-stm32f4
 * https://github.com/rickyzhang82/nofrendo
 ```
+nofrendo-2.0pre1.zip  
 nofrendo_linux_v2_ubuntu_run_uintptr_t.tar.gz  
 nofrendo_vc6_v9_min.rar  
-nofrendo-2.0pre1.zip  
+(for ./configure) nofrendo_linux_v2_ubuntu.tar.gz
+nofrendo_linux_v1.tar.gz
 ```
 
 ## How to build for Xubuntu 20.04 64bit (x86_64, amd64)  
