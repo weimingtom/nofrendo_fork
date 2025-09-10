@@ -2,6 +2,8 @@
 [WIP] My nofrendo fork
 
 ## Ref
+* (origin) https://web.archive.org/web/20210419085348/http://www.baisoku.org
+* (origin) https://web.archive.org/web/20210419085348/http://www.baisoku.org/nofrendo-2.0pre1.zip
 * (origin, dead) http://www.baisoku.org/nofrendo-2.0pre1.zip
 * https://github.com/weimingtom/wmt_stm32_study/?tab=readme-ov-file#nofrendo-stm32f4
 * https://github.com/rickyzhang82/nofrendo
