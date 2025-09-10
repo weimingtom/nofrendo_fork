@@ -23,7 +23,7 @@ nofrendo-2.0pre1.zip
 https://w.electrodragon.com/w/ARM_GCC  
 https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/  
 https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz  
-* See src/liulianpi_v3s/Makefile, tar xf gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz to /home/wmt/work_v3s/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  
+* See src/liulianpi_v3s/Makefile, tar xf gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz to /home/wmt/work_v3s/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
 * $ cd src/liulianpi_v3s  
 * $ make clean
 * $ make -j8
