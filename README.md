@@ -11,17 +11,18 @@ nofrendo_vc6_v9_min.rar
 nofrendo-2.0pre1.zip  
 ```
 
-## How to build for Xubuntu 20.04
+## How to build for Xubuntu 20.04 64bit (x86_64, amd64)  
 * $ cd src/xubuntu
 * $ make clean
 * $ make -j8
+* Copy file "DEMO.NES" to ~/.
 * $ ./nofrendo ~/DEMO.NES
 
-## How to build for LiuLianPi V3S
+## How to build for LiuLianPi V3S (Allwinner v3s, ARM 32bit Cortex-A7)  
 * $ cd src/liulianpi_v3s
 * $ make clean
 * $ make -j8
-* Copy file "nofrendo" to tf card
+* Copy file "nofrendo" and "DEMO.NES" to tf card
 * Login UART (COMx) console with Putty
 * \# mkdir /mnt/SDCARD
 * \# mount /dev/mmcblk0p1 /mnt/SDCARD/
