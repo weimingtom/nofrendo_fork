@@ -6,7 +6,8 @@
 * (origin) https://web.archive.org/web/20210419085348/http://www.baisoku.org/nofrendo-2.0pre1.zip
 * (origin, dead) http://www.baisoku.org/nofrendo-2.0pre1.zip
 * https://github.com/weimingtom/wmt_stm32_study/?tab=readme-ov-file#nofrendo-stm32f4
-* https://github.com/rickyzhang82/nofrendo
+* (origin) https://github.com/rickyzhang82/nofrendo   
+Sometimes it can run ./configure better than nofrendo-2.0pre1.zip  
 ```
 nofrendo-2.0pre1.zip  
 nofrendo_linux_v2_ubuntu_run_uintptr_t.tar.gz  
