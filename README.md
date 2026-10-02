@@ -40,3 +40,15 @@ https://github.com/weimingtom/nofrendo_fork/blob/master/vendor/v3s/work_v3s_read
 * \# mount /dev/mmcblk0p1 /mnt/SDCARD/
 * \# cd /mnt/SDCARD/nofrendo/
 * \# SDL_NOMOUSE=1 ./nofrendo ./DEMO.NES
+
+## uintptr_t problem (NOTE: this is not the only resolution)
+* https://github.com/weimingtom/nofrendo_fork/blob/master/src/bitmap.c#L72  
+```
+上次我用xubuntu 20编译运行nofrendo闪退crash的问题修复了，其实很容易改，
+虽然crash的地方是vid_drv.c（这个文件的代码写得比较高手），
+但出问题的地方是bitmap_t结构体的line指针数组被截断成32位，
+如果要改这个bug，只需要把bitmap.c里面的uint32改成uintptr_t并且包含stdint.h头文件，
+然后重新编译就能解决这个截断指针值的bug，至于为什么需要先转换成uintptr_t？
+因为C语言里面的指针不能直接做按位操作，需要先转换成整数型，
+而指针转换成uintptr_t不会丢失数据，可以重新转换回去
+```
